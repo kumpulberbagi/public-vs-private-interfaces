@@ -53,7 +53,7 @@ class BankAccount {
     //
     var acc = this.get_account_number
     var hideAcc = acc.replace(/\d+[-]\d+/g, "***-***");
-    console.log("Hacktivate: Checking# " +  hideAcc);
+    console.log("Hacktivate: "+ this.get_customer_name  + " | Account : " +  hideAcc);
   }
 }
 
