@@ -22,12 +22,13 @@ class BankAccount {
 
   to_s() {
     //
-    return this[priv];
+    return this._customer_name + ": " + this._type + "# " + this[priv];
   }
 
   cover_digits() {
     //
-    return this[priv].replace(/(\d{3}-)/g, "***-");
+    let covered_number = this[priv].replace(/(\d{3}-)/g, "***-"); // covered number
+    return this._customer_name + ": " + this._type + "# " + covered_number;
   }
 }
 
@@ -37,11 +38,9 @@ let my_acct = new BankAccount("Hacktivate", "Checking", "333-555-888")
 
 // Checking the log
 console.log(my_acct);
-console.log("ACCOUNT NUMBER: " + my_acct.account_number);
-console.log("Private Number: " + my_acct.cover_digits());
 
 
 // release 0
-my_acct.to_s() // "Hacktivate: Checking# 333-555-888"
+console.log(my_acct.to_s()); // "Hacktivate: Checking# 333-555-888"
 // release 1
-my_acct.cover_digits(); // "Hacktivate: Checking# ***-***-888"
+console.log(my_acct.cover_digits()); // "Hacktivate: Checking# ***-***-888"
