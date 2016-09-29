@@ -1,22 +1,32 @@
 "use strict"
 
 const ACCT_NUMBER = new WeakMap()
+const number = Symbol('_acct_number')
 
 class BankAccount {
   constructor(customer_name, type, acct_number) {
-    //
+    this._customer_name = customer_name
+    this._type = type
+    this[number] = acct_number//
   }
 
+  get acct_number(){
+    return this[number];
+  }
+
+  set acct_number(value){
+    this[number] = value;
+  }
   get account_number() {
-    //
+    return this[number]//
   }
 
   to_s() {
-    //
+    console.log(`${this._customer_name } : ${this._type} #  ${this[number]}`); //
   }
 
-  cover_digits() {
-    //
+  cover_digits(value) {
+      console.log(`${this._customer_name } : ${this._type} #  ${this[number].replace(/(\d{3}-)/g, "***-")}`);//
   }
 }
 
