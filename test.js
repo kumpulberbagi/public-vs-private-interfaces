@@ -7,8 +7,8 @@ class BankAccount {
     this._customer_name = customer_name;
     this._type = type;
     this._acct_number = acct_number;
-  }
 
+  }
   set account_number(value){
     this._acct_number = value;
   }
@@ -25,16 +25,18 @@ class BankAccount {
 
   cover_digits() {
     var hasil = [];
-    hasil[this._customer_name]=this._type+"# "+"***_***_"+this._acct_number.match(/\d{3}$/g)
+    hasil[this._customer_name]=this._type+"# "+"***-***-"+this._acct_number.match(/\d{3}$/g)
     return hasil;
   }
+
+
 }
 
 let my_acct = new BankAccount("Hacktivate", "Checking", "333-555-888")
 
 console.log(my_acct)
 console.log(my_acct.account_number)
-
+console.log("++++++++++++++++++")
 // release 0
 console.log(my_acct.to_s()) // "Hacktivate: Checking# 333-555-888"
 
